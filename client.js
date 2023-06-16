@@ -14,23 +14,29 @@ const connect = function () {
   conn.on("connect", () => {
       console.log("Successfully connected to game server");
       conn.write('Name: JK'); //setting name for the snake
-      // conn.write("Move: up");
-      // conn.write("Move: left");
-      // conn.write("Move: down");
     
-    setInterval(() => {
-        conn.write("Move: up");
-  }, 2000)
-  //   setTimeout(() => {
-  //     conn.on("connect", () => {
+  //   setInterval(() => {
   //       conn.write("Move: up");
-  //   });
-  // }, 2000);
+  //       conn.write("Move: left");
+  // }, 50)
 });
-    // conn.on("connect", () => {
-      // conn.write("Move: down");
-    // });
   return conn;
 
 };
+// setup interface to handle user input from stdin
+const setupInput = function () {
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding("utf8");
+  stdin.resume();
+  
+  const handleUserInput = function (data) {
+    if (data === '\u0003') {
+      process.exit();
+    }
+  };
+  stdin.on("data", handleUserInput);
+  return stdin;
+};
 module.exports = connect;
+module.exports = setupInput;
