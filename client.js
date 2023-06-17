@@ -14,7 +14,7 @@ const connect = function () {
   conn.on("connect", () => {
       console.log("Successfully connected to game server");
       conn.write('Name: JK'); //setting name for the snake
-    
+      conn.write('Say: Wo!');
   //   setInterval(() => {
   //       conn.write("Move: up");
   //       conn.write("Move: left");
