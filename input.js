@@ -1,8 +1,3 @@
-// const w = "Move: up";
-// const a = "Move: left";
-// const s = "Move: down";
-// const d = "Move: right";
-
 //store the actuve TCP connection object;
 let connection;
 
@@ -36,4 +31,6 @@ const setupInput = function (conn) {
   return stdin;
 };
 
-module.exports = setupInput;
+module.exports = {
+  setupInput
+};
