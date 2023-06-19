@@ -14,7 +14,6 @@ const setupInput = function (conn) {
       process.exit();
     }
     if (data === 'w') {
-      // console.log(data);
       connection.write('Move: up');
     }
     if (data === 'a') {
@@ -25,6 +24,15 @@ const setupInput = function (conn) {
     }
     if (data === 'd') {
       connection.write('Move: right');
+    }
+    if (data === 'q') {
+      connection.write('Say: Hi there');
+    }
+    if (data === 'j') {
+      connection.write('Say: Wohoo!');
+    }
+    if (data === 'k') {
+      connection.write('Say: yay');
     }
   };
   stdin.on("data", handleUserInput);
